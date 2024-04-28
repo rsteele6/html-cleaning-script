@@ -19,12 +19,15 @@ def main(filePath): # User passes in filePath as a command line argument.
         for match in soup.findAll(tag):
             match.replaceWithChildren()
     
-    # Remove empty tags and clear all tag attributes.
+    # Remove empty tags
     for tag in soup.findAll():
         if len(tag.get_text(strip=True)) == 0:
          tag.extract()
-         for val in list(tag.attrs):
-            del tag.attrs[val]
+
+    # Clear all tag attributes.
+    for tags in soup.FindAll():
+         for val in list(tags.attrs):
+            del tags.attrs[val]
     
     cleanedData = str(soup)
 
